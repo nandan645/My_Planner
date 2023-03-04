@@ -29,7 +29,7 @@ window.addEventListener('load', () => {
 function myFunction() {
 	var txt;
 	if (confirm("Open Stopwatch")) {
-		window.open("/stopwatch/index.html");
+		window.open("stopwatch/index.html");
 	} else {
 	}
   }
