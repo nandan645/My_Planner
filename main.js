@@ -11,7 +11,6 @@ window.addEventListener('load', () => {
 			content: e.target.elements.content.value,
 			category: e.target.elements.category.value,
 			done: false,
-			createdAt: new Date().getTime()
 		}
 
 		todos.push(todo);
@@ -27,6 +26,14 @@ window.addEventListener('load', () => {
 	DisplayTodos()
 })
 
+function myFunction() {
+	var txt;
+	if (confirm("Open Stopwatch")) {
+		window.open("/stopwatch/index.html");
+	} else {
+	}
+  }
+
 function DisplayTodos () {
 	const todoList = document.querySelector('#todo-list');
 	todoList.innerHTML = "";
@@ -40,14 +47,15 @@ function DisplayTodos () {
 		const span = document.createElement('span');
 		const content = document.createElement('div');
 		const actions = document.createElement('div');
+		const view = document.createElement('button')
 		const edit = document.createElement('button');
 		const deleteButton = document.createElement('button');
 
 		input.type = 'checkbox';
 		input.checked = todo.done;
 		span.classList.add('bubble');
-		if (todo.category == 'personal') {
-			span.classList.add('personal');
+		if (todo.category == 'medium') {
+			span.classList.add('medium');
 		} else if (todo.category == 'low') {
 			span.classList.add('low');
 		} else {
@@ -55,21 +63,24 @@ function DisplayTodos () {
 		}
 		content.classList.add('todo-content');
 		actions.classList.add('actions');
+		view.classList.add('view')
 		edit.classList.add('edit');
 		deleteButton.classList.add('delete');
 
 		content.innerHTML = `<input type="text" value="${todo.content}" readonly>`;
+		view.innerHTML = 'Do_it';
 		edit.innerHTML = 'Edit';
 		deleteButton.innerHTML = 'Delete';
 
 		label.appendChild(input);
 		label.appendChild(span);
+		actions.appendChild(view)
 		actions.appendChild(edit);
 		actions.appendChild(deleteButton);
 		todoItem.appendChild(label);
 		todoItem.appendChild(content);
 		todoItem.appendChild(actions);
-
+		
 		todoList.appendChild(todoItem);
 
 		if (todo.done) {
@@ -88,6 +99,11 @@ function DisplayTodos () {
 
 			DisplayTodos()
 
+		})
+		
+		view.addEventListener('click', (e) => {
+			window.alert(todo.content);
+			myFunction();
 		})
 
 		edit.addEventListener('click', (e) => {
@@ -109,5 +125,8 @@ function DisplayTodos () {
 			DisplayTodos()
 		})
 
+
+
 	})
+
 }
