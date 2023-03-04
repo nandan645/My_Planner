@@ -102,6 +102,7 @@ function DisplayTodos () {
 		})
 		
 		view.addEventListener('click', (e) => {
+			window.alert(todo.content);
 			myFunction();
 		})
 
