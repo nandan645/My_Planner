@@ -18,7 +18,7 @@
     padding: 20px 0;
     padding-bottom: 50px;
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.338);
+/*     box-shadow: 0 0 20px rgba(0, 0, 0, 0.338); */
 }
 
 .timer-display {
@@ -33,7 +33,7 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    border-radius: 5px;
+    border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
 }
 
